@@ -128,6 +128,34 @@ pipelines:
           onExecute:
             - printenv
 
+      - name: very_last_1
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: parallel_3
+        execution:
+          onExecute:
+            - printenv
+
+      - name: very_last_2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: parallel_3
+        execution:
+          onExecute:
+            - printenv
+
+      - name: very_last_3
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: parallel_3
+        execution:
+          onExecute:
+            - printenv
+
+
   - name: second_test_pipeline
     steps:
       - name: first_step
