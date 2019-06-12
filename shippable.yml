@@ -61,7 +61,6 @@ pipelines:
       - name: parallel_1
         type: Bash
         configuration:
-          affinityGroup: build
           inputSteps:
             - name: test
         execution:
