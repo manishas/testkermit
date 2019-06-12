@@ -97,9 +97,7 @@ pipelines:
         configuration:
           affinityGroup: build
           inputSteps:
-            - name: parallel_2
             - name: parallel_1
-            - name: parallel_3
           integrations:
             - name: artDocker
             - name: notifySlack
@@ -116,6 +114,26 @@ pipelines:
             - echo "Changing the world"
           onSuccess:
             - send_notification notifySlack --text "push is done"
+
+      - name: last_2
+        type: Bash
+        configuration:
+          affinityGroup: build
+          inputSteps:
+            - name: parallel_2
+        execution:
+          onExecute:
+            - printenv
+
+      - name: last_3
+        type: Bash
+        configuration:
+          affinityGroup: build
+          inputSteps:
+            - name: parallel_3
+        execution:
+          onExecute:
+            - printenv
 
   - name: second_test_pipeline
     steps:
